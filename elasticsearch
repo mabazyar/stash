@@ -1,0 +1,10 @@
+sysctl -w vm.max_map_count=262144
+
+docker run -itd --hostname elasticnode1 --name elasticnode1 elasticsearch:6.5.3 #AToW
+
+PUT <index-name>/_settings
+
+{
+  "index.mapping.total_fields.limit": 10000
+}
+
