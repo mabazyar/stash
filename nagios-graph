@@ -1,0 +1,21 @@
+Yeaa there is some issue with perl path like /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 ...etc.
+
+The workaround is to reinstall NagiosGraph. Here is how you can do that:
+
+Start your container with volumes
+#Enter your container
+docker exec -it nagios4 /bin/bash
+
+#Clean /opt/nagiosgraph folder --- you will receive ...etc and ... var are busy dont worry.
+rm -rf /opt/nagiosgraph
+
+#Build your NagiosGraph --- you dont need to download it its already there just reinstall it.
+cd /tmp/nagiosgraph &&
+./install.pl --install
+--prefix /opt/nagiosgraph
+--nagios-user ${NAGIOS_USER}
+--www-user ${NAGIOS_USER}
+--nagios-perfdata-file ${NAGIOS_HOME}/var/perfdata.log
+--nagios-cgi-url /cgi-bin
+&&
+cp share/nagiosgraph.ssi ${NAGIOS_HOME}/share/ssi/common-header.ssi
