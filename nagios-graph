@@ -19,3 +19,6 @@ cd /tmp/nagiosgraph &&
 --nagios-cgi-url /cgi-bin
 &&
 cp share/nagiosgraph.ssi ${NAGIOS_HOME}/share/ssi/common-header.ssi
+
+
+That's all.
