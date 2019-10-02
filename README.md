@@ -1,1 +1,3 @@
 # stash
+
+Clipboard
